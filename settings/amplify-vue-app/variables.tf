@@ -33,10 +33,12 @@ variable "access_token" {
 
 variable "branch_config" {
   type = map(object({
+    enabled                     = bool
     environment                 = string
     branch_name                 = string
     enable_auto_build           = string
     enable_pull_request_preview = string
+    environment_variables       = map(string)
   }))
   description = "The branch config of current platform"
 }
