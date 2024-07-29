@@ -11,7 +11,7 @@ on:
         default: false
         type: boolean
       dry_run:
-        description: Dry Run
+        description: Dry run
         required: true
         default: true
         type: boolean
