@@ -6,12 +6,12 @@ on:
       - main
     inputs:
       destroy:
-        description: True to destroy
+        description: Destroy Plan
         required: true
         default: false
         type: boolean
       dry_run:
-        description: Dry run
+        description: Dry Run
         required: true
         default: true
         type: boolean
