@@ -4,6 +4,7 @@
   "repository": "https://github.com/camillehe1992/amplify-vue-app",
   "branch_config": {
     "dev": {
+      "enabled": true,
       "environment": "dev",
       "branch_name": "develop",
       "enable_auto_build": true,
@@ -11,6 +12,7 @@
       "environment_variables": {}
     },
     "prod": {
+      "enabled": false,
       "environment": "prod",
       "branch_name": "main",
       "enable_auto_build": true,
