@@ -16,6 +16,8 @@ on:
         default: true
         type: boolean
 
+run-name: apply ${{ inputs.destroy && 'with destroy' || '' }} changes ${{ inputs.dry_run && 'as dry run' || ''}}
+
 permissions:
   contents: read
   id-token: write
@@ -100,6 +102,30 @@ jobs:
             exit 0
           fi
 
+      - name: Create String Output
+        id: tf-plan-string
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+        run: |
+          TERRAFORM_PLAN=$(terraform show -no-color tfplan)
+
+          delimiter="$(openssl rand -hex 8)"
+          echo "summary<<${delimiter}" >> $GITHUB_OUTPUT
+          echo "#### Terraform Plan Output" >> $GITHUB_OUTPUT
+          echo "<details><summary>Click to expand</summary>" >> $GITHUB_OUTPUT
+          echo "" >> $GITHUB_OUTPUT
+          echo '```terraform' >> $GITHUB_OUTPUT
+          echo "$TERRAFORM_PLAN" >> $GITHUB_OUTPUT
+          echo '```' >> $GITHUB_OUTPUT
+          echo "</details>" >> $GITHUB_OUTPUT
+          echo "${delimiter}" >> $GITHUB_OUTPUT
+
+      # Publish Terraform Plan as task summary
+      - name: Publish Terraform Plan to Task Summary
+        env:
+          SUMMARY: ${{ steps.tf-plan-string.outputs.summary }}
+        run: |
+          echo "$SUMMARY" >> $GITHUB_STEP_SUMMARY
+
       - name: Terraform Apply
         if: ${{ steps.tf-plan.outputs.exitcode && !inputs.dry_run }}
         id: tf-apply-string
@@ -109,7 +135,7 @@ jobs:
 
           delimiter="$(openssl rand -hex 8)"
           echo "summary<<${delimiter}" >> $GITHUB_OUTPUT
-          echo "### Terraform Apply Output" >> $GITHUB_OUTPUT
+          echo "#### Terraform Apply Output" >> $GITHUB_OUTPUT
           echo "<details><summary>Click to expand</summary>" >> $GITHUB_OUTPUT
           echo "" >> $GITHUB_OUTPUT
           echo '```terraform' >> $GITHUB_OUTPUT
