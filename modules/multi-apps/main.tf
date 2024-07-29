@@ -1,7 +1,7 @@
-
-data "aws_region" "current" {}
 resource "aws_amplify_app" "this" {
-  name         = "${var.environment}-${var.nickname}-${var.platform}"
+  for_each = var.branch_config
+
+  name         = "${each.key}-${var.nickname}-${local.platform_type}"
   repository   = var.repository
   access_token = var.access_token
   build_spec   = file("${path.module}/amplify.yaml")
@@ -19,16 +19,15 @@ resource "aws_amplify_app" "this" {
     target = "/index.html"
   }
 
-  tags = merge(local.default_tags, var.tags)
+  tags = var.tags
 }
 
 resource "aws_amplify_branch" "this" {
-  app_id      = aws_amplify_app.this.id
-  branch_name = var.branch_name
-  stage       = var.stage
+  for_each = var.branch_config
 
-  enable_auto_build           = var.enable_auto_build
-  enable_pull_request_preview = var.enable_pull_request_preview
-
-  tags = merge(local.default_tags, var.tags)
+  app_id                      = aws_amplify_app.this[each.key].id
+  branch_name                 = each.value.branch_name
+  stage                       = var.stage
+  enable_auto_build           = each.value.enable_auto_build
+  enable_pull_request_preview = each.value.enable_pull_request_preview
 }

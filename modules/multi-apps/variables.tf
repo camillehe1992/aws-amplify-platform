@@ -10,12 +10,6 @@ variable "aws_profile" {
   description = "AWS profile which used for terraform infra deployment"
 }
 
-variable "platform" {
-  type        = string
-  default     = "multi-apps"
-  description = "The type of current platform"
-}
-
 variable "framework" {
   type        = string
   default     = "Vue"
@@ -34,23 +28,23 @@ variable "tags" {
   description = "The key value pairs we want to apply as tags to the resources contained in this module"
 }
 
-variable "enable_auto_build" {
-  type        = bool
-  default     = true
-  description = "Enables auto building for the branch"
-}
+# variable "enable_auto_build" {
+#   type        = bool
+#   default     = true
+#   description = "Enables auto building for the branch"
+# }
 
-variable "enable_pull_request_preview" {
-  type        = bool
-  default     = true
-  description = "Enables pull request previews for this branch"
-}
+# variable "enable_pull_request_preview" {
+#   type        = bool
+#   default     = true
+#   description = "Enables pull request previews for this branch"
+# }
 
 # Custom Deployment Variables
-variable "environment" {
-  type        = string
-  description = "The environment of application"
-}
+# variable "environment" {
+#   type        = string
+#   description = "The environment of application"
+# }
 
 variable "nickname" {
   type        = string
@@ -73,7 +67,17 @@ variable "access_token" {
   sensitive   = true
 }
 
-variable "branch_name" {
-  type        = string
-  description = "Name for the branch"
+# variable "branch_name" {
+#   type        = string
+#   description = "Name for the branch"
+# }
+
+variable "branch_config" {
+  type = map(object({
+    environment                 = string
+    branch_name                 = string
+    enable_auto_build           = string
+    enable_pull_request_preview = string
+  }))
+  description = "The branch config of current platform"
 }
