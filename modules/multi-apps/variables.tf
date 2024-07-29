@@ -28,24 +28,6 @@ variable "tags" {
   description = "The key value pairs we want to apply as tags to the resources contained in this module"
 }
 
-# variable "enable_auto_build" {
-#   type        = bool
-#   default     = true
-#   description = "Enables auto building for the branch"
-# }
-
-# variable "enable_pull_request_preview" {
-#   type        = bool
-#   default     = true
-#   description = "Enables pull request previews for this branch"
-# }
-
-# Custom Deployment Variables
-# variable "environment" {
-#   type        = string
-#   description = "The environment of application"
-# }
-
 variable "nickname" {
   type        = string
   description = "The nickname of application. Must be lowercase without special chars"
@@ -66,11 +48,6 @@ variable "access_token" {
   description = "Personal access token for a third-party source control system for an Amplify app"
   sensitive   = true
 }
-
-# variable "branch_name" {
-#   type        = string
-#   description = "Name for the branch"
-# }
 
 variable "branch_config" {
   type = map(object({

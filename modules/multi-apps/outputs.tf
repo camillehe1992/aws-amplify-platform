@@ -1,7 +1,7 @@
-output "amplify_app_urls" {
+output "amplify_app" {
   value = {
-    for key, value in aws_amplify_app.this : key => value.default_domain
+    for key, value in aws_amplify_app.this : key => value
   }
-  description = "Default domains for the Amplify app"
+  description = "Attributes for the Amplify app"
 }
 
