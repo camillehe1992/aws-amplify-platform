@@ -4,7 +4,7 @@ resource "aws_amplify_app" "this" {
   name         = "${each.key}-${var.nickname}-${local.platform_type}"
   repository   = var.repository
   access_token = var.access_token
-  build_spec   = file("${path.module}/amplify.yaml")
+  build_spec   = file(local.build_spec)
 
   auto_branch_creation_config {
     enable_auto_build           = true
