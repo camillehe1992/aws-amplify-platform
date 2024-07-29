@@ -1,0 +1,32 @@
+name: <NICKNAME>
+
+on:
+  workflow_dispatch:
+    branches:
+      - main
+    inputs:
+      dry-run:
+        description: Dry Run
+        required: true
+        default: true
+        type: boolean
+      destroy:
+        description: Destroy Plan
+        required: true
+        default: false
+        type: boolean
+
+run-name: apply ${{ inputs.destroy && 'with destroy' || '' }} changes ${{ inputs.dry-run && 'as dry run' || ''}}
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  apply:
+    uses: ./.github/workflows/reusable-workflow.yaml
+    secrets: inherit
+    with:
+      dry-run: ${{ inputs.dry-run }}
+      destroy: ${{ inputs.destroy }}
+      nickname: <NICKNAME>
