@@ -22,10 +22,6 @@ on:
         type: string
         required: true
 
-permissions:
-  contents: read
-  id-token: write
-
 env:
   TF_VERSION: 1.8.0
   # GitHub Variables

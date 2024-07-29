@@ -18,6 +18,10 @@ on:
 
 run-name: apply ${{ inputs.destroy && 'with destroy' || '' }} changes ${{ inputs.dry-run && 'as dry run' || ''}}
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   apply:
     uses: ./.github/workflows/reusable-workflow.yaml
