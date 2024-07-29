@@ -19,10 +19,11 @@ on:
 run-name: apply ${{ inputs.destroy && 'with destroy' || '' }} changes ${{ inputs.dry-run && 'as dry run' || ''}}
 
 jobs:
-  uses: ./.github/workflows/reusable-workflow.yaml
-  secrets: inherit
-  with:
-    dry-run: ${{ inputs.dry-run }}
-    destroy: ${{ inputs.destroy }}
-    nickname: ec2instance
-    working-directory: ec2-instance
+  apply:
+    uses: ./.github/workflows/reusable-workflow.yaml
+    secrets: inherit
+    with:
+      dry-run: ${{ inputs.dry-run }}
+      destroy: ${{ inputs.destroy }}
+      nickname: ec2instance
+      working-directory: ec2-instance
