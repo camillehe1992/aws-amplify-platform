@@ -1,0 +1,19 @@
+{
+  "nickname": "amplify-vue-app",
+  "app_name": "Host Vue based web application in AWS Amplify",
+  "repository": "https://github.com/camillehe1992/amplify-vue-app",
+  "branch_config": {
+    "dev": {
+      "environment": "dev",
+      "branch_name": "develop",
+      "enable_auto_build": true,
+      "enable_pull_request_preview": true
+    },
+    "prod": {
+      "environment": "prod",
+      "branch_name": "main",
+      "enable_auto_build": true,
+      "enable_pull_request_preview": true
+    }
+  }
+}

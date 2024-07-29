@@ -8,12 +8,11 @@ BASE := $(shell /bin/pwd)
 
 GOLBAL_DIR := $(BASE)/settings/global
 BASE_DIR := $(BASE)/settings/$(NICKNAME)
-VAR_FILE := $(BASE_DIR)/dev.tfvars
+VAR_FILE := $(BASE_DIR)/tfvars.json
 
 $(info AWS_PROFILE 		= $(AWS_PROFILE))
 $(info AWS_REGION  		= $(AWS_REGION))
 $(info STATE_BUCKET		= $(STATE_BUCKET))
-$(info ENVIRONMENT 		= $(ENVIRONMENT))
 $(info NICKNAME    		= $(NICKNAME))
 $(info VAR_FILE 		= $(VAR_FILE))
 
@@ -44,7 +43,7 @@ init: check-env
 		-backend-config="region=$(AWS_REGION)" \
 		-backend-config="profile=$(AWS_PROFILE)" \
 		-backend-config="bucket=$(STATE_BUCKET)" \
-		-backend-config="key=aws-amplify-platform/$(NICKNAME)/$(ENVIRONMENT)/$(AWS_REGION)/terraform.tfstate"
+		-backend-config="key=aws-amplify-platform/$(NICKNAME)/$(AWS_REGION)/terraform.tfstate"
 
 plan: init
 	$(info [*] Plan Terrafrom Infra)
