@@ -17,10 +17,6 @@ on:
         description: Nickname of the project. Must be lowercase chars
         type: string
         required: true
-      working-directory:
-        description: Terraform working directory
-        type: string
-        required: true
 
 env:
   TF_VERSION: 1.8.0
@@ -32,7 +28,7 @@ env:
   # Workflow Inputs
   DESTROY: ${{ inputs.destroy }}
   NICKNAME: ${{ inputs.nickname }}
-  WORKING_DIRECTORY: ${{ inputs.working-directory }}
+  WORKING_DIRECTORY: settings/${{ inputs.nickname }}
   # Terraform Variables are prefixed with TF_VAR
   TF_VAR_aws_region: ${{ vars.AWS_REGION }}
   TF_VAR_access_token: ${{ secrets.TF_VAR_ACCESS_TOKEN }}

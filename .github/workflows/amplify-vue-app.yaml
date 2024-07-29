@@ -29,5 +29,4 @@ jobs:
     with:
       dry-run: ${{ inputs.dry-run }}
       destroy: ${{ inputs.destroy }}
-      nickname: ec2instance
-      working-directory: ec2-instance
+      nickname: amplify-vue-app
