@@ -7,13 +7,15 @@
       "environment": "dev",
       "branch_name": "develop",
       "enable_auto_build": true,
-      "enable_pull_request_preview": true
+      "enable_pull_request_preview": true,
+      "environment_variables": {}
     },
     "prod": {
       "environment": "prod",
       "branch_name": "main",
       "enable_auto_build": true,
-      "enable_pull_request_preview": true
+      "enable_pull_request_preview": true,
+      "environment_variables": {}
     }
   }
 }
