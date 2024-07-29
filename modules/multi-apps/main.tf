@@ -1,5 +1,5 @@
 resource "aws_amplify_app" "this" {
-  for_each = var.branch_config
+  for_each = local.branch_config
 
   name         = "${each.key}-${var.nickname}-${local.platform_type}"
   repository   = var.repository
@@ -23,7 +23,7 @@ resource "aws_amplify_app" "this" {
 }
 
 resource "aws_amplify_branch" "this" {
-  for_each = var.branch_config
+  for_each = local.branch_config
 
   app_id                      = aws_amplify_app.this[each.key].id
   branch_name                 = each.value.branch_name
