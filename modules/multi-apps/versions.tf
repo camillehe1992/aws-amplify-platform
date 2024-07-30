@@ -11,12 +11,4 @@ terraform {
 provider "aws" {
   region  = var.aws_region
   profile = var.aws_profile
-  default_tags {
-    tags = {
-      Platform_Type = local.platform_type
-      Platform      = "Amplify Infrastructure Management Platform"
-      Version       = "0.0.1"
-      Deploy_At     = formatdate("YYYY-MM-DD hh:mm:ss ZZZ", local.current_timestamp)
-    }
-  }
 }

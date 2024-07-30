@@ -5,3 +5,6 @@ output "amplify_app" {
   description = "Attributes for the Amplify app"
 }
 
+output "branch_secrets" {
+  value = local.branch_secrets
+}

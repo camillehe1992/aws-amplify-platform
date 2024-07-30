@@ -58,6 +58,7 @@ variable "branch_config" {
     enable_auto_build           = string
     enable_pull_request_preview = string
     environment_variables       = optional(map(string), {})
+    secrets                     = optional(list(string), [])
   }))
   description = "The branch config of current platform"
 }

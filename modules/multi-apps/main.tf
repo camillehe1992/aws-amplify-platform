@@ -19,7 +19,7 @@ resource "aws_amplify_app" "this" {
     target = "/index.html"
   }
 
-  tags = var.tags
+  tags = merge(local.default_tags, var.tags)
 }
 
 resource "aws_amplify_branch" "this" {
@@ -31,4 +31,15 @@ resource "aws_amplify_branch" "this" {
   enable_auto_build           = each.value.enable_auto_build
   enable_pull_request_preview = each.value.enable_pull_request_preview
   environment_variables       = each.value.environment_variables
+}
+
+resource "aws_ssm_parameter" "secrets" {
+  depends_on = [aws_amplify_app.this]
+  for_each   = local.secrets
+
+  type  = "SecureString"
+  name  = each.key
+  value = each.value
+
+  tags = merge(local.default_tags, var.tags)
 }
