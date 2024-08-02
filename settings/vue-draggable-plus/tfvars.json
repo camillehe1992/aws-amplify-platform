@@ -1,0 +1,31 @@
+{
+  "nickname": "vue-draggable-plus",
+  "app_name": "Demostrate VueDraggablePlus module in Vue application",
+  "repository": "https://github.com/camillehe1992/vue-draggable-plus-demo",
+  "branch_config": {
+    "dev": {
+      "enabled": false,
+      "environment": "dev",
+      "branch_name": "develop",
+      "enable_auto_build": true,
+      "enable_pull_request_preview": true,
+      "environment_variables": {
+        "NODE_ENV": "development",
+        "LOG_LEVEL": "DEBUG"
+      }
+    },
+    "prod": {
+      "enabled": true,
+      "environment": "prod",
+      "branch_name": "main",
+      "enable_auto_build": true,
+      "enable_pull_request_preview": true,
+      "environment_variables": {
+        "environment_variables": {
+          "NODE_ENV": "production",
+          "LOG_LEVEL": "DEBUG"
+        }
+      }
+    }
+  }
+}
