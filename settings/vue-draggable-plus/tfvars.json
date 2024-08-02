@@ -21,10 +21,8 @@
       "enable_auto_build": true,
       "enable_pull_request_preview": true,
       "environment_variables": {
-        "environment_variables": {
-          "NODE_ENV": "production",
-          "LOG_LEVEL": "DEBUG"
-        }
+        "NODE_ENV": "production",
+        "LOG_LEVEL": "DEBUG"
       }
     }
   }

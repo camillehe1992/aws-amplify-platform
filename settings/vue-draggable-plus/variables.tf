@@ -38,7 +38,7 @@ variable "branch_config" {
     branch_name                 = string
     enable_auto_build           = string
     enable_pull_request_preview = string
-    environment_variables       = optional(object(), {})
+    environment_variables       = map(string)
   }))
   description = "The branch config of current platform"
 }

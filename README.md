@@ -94,3 +94,17 @@ Step 5. Deploy AWS infrastructure
 After settings is completed, you can verify the deployment from local machine for development purpose. Or commit the code change, and push to remote. Trigger the new created workflow to provision Amplify app for the project in AWS.
 
 See [Deployment Documentation](./docs/Deployment.md) for the detailed information.
+
+## Troubleshoot
+
+### 1. Operation error Amplify: CreateApp
+
+If you met below error when applying Amplify app in AWS, update the AWS Amplify configuration in `GitHub -> Settings -> Integrations -> Applications -> Installed GitHub Apps` to add the new created repo in the list.
+
+  ```text
+  │ Error: creating Amplify App (prod-vue-draggable-plus-multi-apps): operation error Amplify: CreateApp, https response error StatusCode: 400, RequestID: 69a39f01-7e95-4857-98cb-c540ed524979, BadRequestException: There was an issue setting up your repository. Please try again later.({"message":"Bad credentials","documentation_url":"https://docs.github.com/rest","status":"401"})
+  ```
+
+### 2. Start a New Job for Your Amplify Branch
+
+For the first deployment, you must start a new job for your Amplify branch from AWS console.
