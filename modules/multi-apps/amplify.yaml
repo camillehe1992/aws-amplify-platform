@@ -4,7 +4,7 @@ applications:
       phases:
         preBuild:
           commands:
-            - npm ci --only=production --ignore-scripts
+            - npm ci --only=production --ignore-scripts --omit=dev
         build:
           commands:
             - npm run build
