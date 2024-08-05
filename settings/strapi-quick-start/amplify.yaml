@@ -1,0 +1,20 @@
+version: 1
+applications:
+  - frontend:
+      phases:
+        preBuild:
+          commands:
+            - npm install --ignore-scripts=false --foreground-scripts --verbose sharp
+        build:
+          commands:
+            - npm run build
+        postBuild:
+          commands:
+            - npm run start
+      artifacts:
+        baseDirectory: build
+        files:
+          - "**/*"
+      cache:
+        paths:
+          - node_modules/**/*
