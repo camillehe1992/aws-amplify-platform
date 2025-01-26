@@ -39,11 +39,12 @@ check-env:
 
 init: check-env
 	$(info [*] Init Terrafrom Infra)
-	@cd $(BASE_DIR) && terraform init -reconfigure \
+	@cd $(BASE_DIR) && terraform init -reconfigure -upgrade \
 		-backend-config="region=$(AWS_REGION)" \
 		-backend-config="profile=$(AWS_PROFILE)" \
 		-backend-config="bucket=$(STATE_BUCKET)" \
-		-backend-config="key=aws-amplify-platform/$(NICKNAME)/$(AWS_REGION)/terraform.tfstate"
+		-backend-config="key=aws-amplify-platform/$(NICKNAME)/$(AWS_REGION)/terraform.tfstate" \
+		-backend-config="encrypt=true"
 
 plan: init
 	$(info [*] Plan Terrafrom Infra)
@@ -57,10 +58,8 @@ apply: init
 	$(info [*] Apply Terrafrom Infra)
 	@cd $(BASE_DIR) && terraform apply tfplan
 
-quick-deploy:
-	make plan
-	@cd $(BASE_DIR) && terraform apply tfplan
+plan-apply: init
+	@cd $(BASE_DIR) && terraform plan $(OPTIONS) && terraform apply tfplan
 
-quick-destroy:
-	make destroy
-	@cd $(BASE_DIR) && terraform apply tfplan
+destroy-apply: init
+	@cd $(BASE_DIR) && terraform plan -destroy $(OPTIONS) && terraform apply tfplan

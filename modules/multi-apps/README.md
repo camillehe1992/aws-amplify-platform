@@ -9,19 +9,19 @@ terraform-docs -c .terraform-docs.yaml multi-apps > ./multi-apps/README.md
 
 ## Providers
 
-| Name | Version |
-| ---- | ------- |
-| aws  | 5.59.0  |
+| Name | Version   |
+| ---- | --------- |
+| aws  | ~> 5.80.0 |
 
 The module automatically inherits default provider configurations from its parent.
 
 ## Resources
 
-| Name                                                                                                                   | Type     |
-| ---------------------------------------------------------------------------------------------------------------------- | -------- |
-| [aws_amplify_app.this](https://registry.terraform.io/providers/hashicorp/aws/5.59.0/docs/resources/amplify_app)        | resource |
-| [aws_amplify_branch.this](https://registry.terraform.io/providers/hashicorp/aws/5.59.0/docs/resources/amplify_branch)  | resource |
-| [aws_ssm_parameter.secrets](https://registry.terraform.io/providers/hashicorp/aws/5.59.0/docs/resources/ssm_parameter) | resource |
+| Name                                                                                                                      | Type     |
+| ------------------------------------------------------------------------------------------------------------------------- | -------- |
+| [aws_amplify_app.this](https://registry.terraform.io/providers/hashicorp/aws/~> 5.80.0/docs/resources/amplify_app)        | resource |
+| [aws_amplify_branch.this](https://registry.terraform.io/providers/hashicorp/aws/~> 5.80.0/docs/resources/amplify_branch)  | resource |
+| [aws_ssm_parameter.secrets](https://registry.terraform.io/providers/hashicorp/aws/~> 5.80.0/docs/resources/ssm_parameter) | resource |
 
 ## Inputs
 

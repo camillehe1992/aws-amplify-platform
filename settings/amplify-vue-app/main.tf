@@ -14,6 +14,7 @@ module "multi-app" {
 # Outputs
 output "domain_urls" {
   value = {
-    for key, value in module.multi-app.amplify_app : key => value.default_domain
+    for key, value in module.multi-app.amplify_app : key => "https://${value.production_branch[0].branch_name}.${value.default_domain}"
   }
+  description = "The access domain url for each environment."
 }

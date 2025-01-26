@@ -1,3 +1,4 @@
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/amplify_app
 resource "aws_amplify_app" "this" {
   for_each = local.branch_config
 
@@ -22,6 +23,7 @@ resource "aws_amplify_app" "this" {
   tags = merge(local.default_tags, var.tags)
 }
 
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/amplify_branch
 resource "aws_amplify_branch" "this" {
   for_each = local.branch_config
 
