@@ -1,0 +1,61 @@
+{
+  "nickname": "amplify-strapi-quick-start",
+  "tags": {
+    "project": "aws-amplify-platform",
+    "nickname": "amplify-strapi-quick-start",
+    "repository": "https://github.com/camillehe1992/amplify-strapi-quick-start"
+  },
+  "repository": "https://github.com/camillehe1992/amplify-strapi-quick-start",
+  "branch_config": {
+    "dev": {
+      "enabled": false,
+      "environment": "dev",
+      "branch_name": "develop",
+      "enable_auto_build": true,
+      "enable_pull_request_preview": true,
+      "environment_variables": {
+        "NODE_ENV": "production",
+        "LOG_LEVEL": "DEBUG",
+        "HOST": "0.0.0.0",
+        "PORT": "1337",
+        "APP_KEYS": "Az7MXvj6zQnYWZ5HcgSAtA==,RSE14sDu0vL99I9qY4edhA==,axB26XRRhdFHBrzAhZYO4A==,h21+zEQYu9zN2tyPNw7e8Q==",
+        "API_TOKEN_SALT": "5Qb6eyxOJOx2dJx+GcK09w==",
+        "ADMIN_JWT_SECRET": "kjw8IZA2Tf/dHJtIEpvhdQ==",
+        "TRANSFER_TOKEN_SALT": "xqrapYHhY4/g20Lye0UOew==",
+        "JWT_SECRET": "cqj3LeK9O37E2FjtFnyg/w==",
+        "DATABASE_CLIENT": "mysql",
+        "DATABASE_HOST": "my-demo-rds.xxxxxxxxx.aws-region.rds.amazonaws.com",
+        "DATABASE_PORT": "3306",
+        "DATABASE_NAME": "strapi",
+        "DATABASE_USERNAME": "admin",
+        "DATABASE_PASSWORD": "",
+        "DATABASE_SSL": "false"
+      }
+    },
+    "prod": {
+      "enabled": false,
+      "environment": "prod",
+      "branch_name": "main",
+      "enable_auto_build": true,
+      "enable_pull_request_preview": true,
+      "environment_variables": {
+        "NODE_ENV": "production",
+        "LOG_LEVEL": "DEBUG",
+        "HOST": "0.0.0.0",
+        "PORT": "1337",
+        "APP_KEYS": "Az7MXvj6zQnYWZ5HcgSAtA==,RSE14sDu0vL99I9qY4edhA==,axB26XRRhdFHBrzAhZYO4A==,h21+zEQYu9zN2tyPNw7e8Q==",
+        "API_TOKEN_SALT": "5Qb6eyxOJOx2dJx+GcK09w==",
+        "ADMIN_JWT_SECRET": "kjw8IZA2Tf/dHJtIEpvhdQ==",
+        "TRANSFER_TOKEN_SALT": "xqrapYHhY4/g20Lye0UOew==",
+        "JWT_SECRET": "cqj3LeK9O37E2FjtFnyg/w==",
+        "DATABASE_CLIENT": "mysql",
+        "DATABASE_HOST": "my-demo-rds.xxxxxxxxx.aws-region.rds.amazonaws.com",
+        "DATABASE_PORT": "3306",
+        "DATABASE_NAME": "strapi",
+        "DATABASE_USERNAME": "admin",
+        "DATABASE_PASSWORD": "",
+        "DATABASE_SSL": "false"
+      }
+    }
+  }
+}

@@ -1,7 +1,11 @@
 {
-  "nickname": "vue-draggable-plus",
-  "app_name": "Demostrate VueDraggablePlus module in Vue application",
-  "repository": "https://github.com/camillehe1992/vue-draggable-plus-demo",
+  "nickname": "amplify-vue-draggable-plus",
+  "tags": {
+    "project": "aws-amplify-platform",
+    "nickname": "amplify-vue-draggable-plus",
+    "repository": "https://github.com/camillehe1992/amplify-vue-draggable-plus"
+  },
+  "repository": "https://github.com/camillehe1992/amplify-vue-draggable-plus",
   "branch_config": {
     "dev": {
       "enabled": false,

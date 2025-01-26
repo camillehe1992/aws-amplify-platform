@@ -50,7 +50,11 @@ Step 2. Modify `settings/my-new-app/tfvars.json`.
 ```json
 {
   "nickname": "amplify-vue-app",
-  "app_name": "Host Vue based web application in AWS Amplify",
+  "tags": {
+    "project": "aws-amplify-platform",
+    "nickname": "amplify-vue-app",
+    "repository": "https://github.com/camillehe1992/amplify-vue-app"
+  },
   "repository": "https://github.com/camillehe1992/amplify-vue-app",
   "branch_config": {
     "dev": {

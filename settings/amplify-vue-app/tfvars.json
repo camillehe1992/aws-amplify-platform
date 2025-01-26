@@ -1,6 +1,11 @@
 {
+  "framework": "Vue",
+  "tags": {
+    "project": "aws-amplify-platform",
+    "nickname": "amplify-vue-app",
+    "repository": "https://github.com/camillehe1992/amplify-vue-app"
+  },
   "nickname": "amplify-vue-app",
-  "app_name": "Host Vue based web application in AWS Amplify",
   "repository": "https://github.com/camillehe1992/amplify-vue-app",
   "branch_config": {
     "dev": {
@@ -12,7 +17,7 @@
       "environment_variables": {}
     },
     "prod": {
-      "enabled": false,
+      "enabled": true,
       "environment": "prod",
       "branch_name": "main",
       "enable_auto_build": true,

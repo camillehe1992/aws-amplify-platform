@@ -29,7 +29,7 @@ resource "aws_amplify_branch" "this" {
 
   app_id                      = aws_amplify_app.this[each.key].id
   branch_name                 = each.value.branch_name
-  stage                       = var.stage
+  stage                       = "PRODUCTION"
   enable_auto_build           = each.value.enable_auto_build
   enable_pull_request_preview = each.value.enable_pull_request_preview
   environment_variables       = each.value.environment_variables

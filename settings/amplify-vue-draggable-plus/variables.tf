@@ -6,18 +6,25 @@ variable "aws_region" {
 variable "aws_profile" {
   type        = string
   nullable    = true
-  default     = null
+  default     = "default"
   description = "AWS profile which used for terraform infra deployment"
+}
+
+variable "framework" {
+  type        = string
+  default     = "Vue"
+  description = "The framework of web application"
+}
+
+variable "tags" {
+  type        = map(string)
+  default     = {}
+  description = "The key value pairs we want to apply as tags to the resources contained in this module"
 }
 
 variable "nickname" {
   type        = string
   description = "The nickname of application. Must be lowercase without special chars"
-}
-
-variable "app_name" {
-  type        = string
-  description = "The web application name"
 }
 
 variable "repository" {

@@ -17,12 +17,6 @@ variable "framework" {
   description = "The framework of web application"
 }
 
-variable "stage" {
-  type        = string
-  default     = "PRODUCTION"
-  description = "Describes the current stage for the branch. Valid values: PRODUCTION, BETA, DEVELOPMENT, EXPERIMENTAL, PULL_REQUEST"
-}
-
 variable "tags" {
   type        = map(string)
   default     = {}
@@ -32,11 +26,6 @@ variable "tags" {
 variable "nickname" {
   type        = string
   description = "The nickname of application. Must be lowercase without special chars"
-}
-
-variable "app_name" {
-  type        = string
-  description = "The web application name"
 }
 
 variable "repository" {
